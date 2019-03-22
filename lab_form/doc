@@ -1,0 +1,23 @@
+browser
+    html5 
+    required
+    - ex.<input type="email" required >
+    max min 
+    - ex.<input type="number" max="120" min="10" >
+    using regular expression
+    - ex.<input type="text" pattern="/([1-9]{1})">
+
+bootsrap
+    first 
+    ex.<form id="mainform"novalidate></form>
+    <script>
+        $(function () {
+        $('#mainform').submit(function (event) {
+            var form = $('#mainform')[0];
+            if (form.checkValidity() === false) {
+            event.preventDefault();
+            }
+            $(this).addClass('was-validated');
+        })
+        });
+    </script>
