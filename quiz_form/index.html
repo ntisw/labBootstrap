@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <title>แบบคำลงทะเบียน</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+    <link rel="functions" href="https://www.bora.dopa.go.th/Election/Elecenter/outvote/enq/js/script.js">
+    <link rel="pid" href="https://www.bora.dopa.go.th/Election/Elecenter/outvote/enq/js/chkdigit.js">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">แบบคำลงทะเบียน</h1>
+            <p class="lead">
+                ขอใช้สิทธิออกเสียงลงคะแนน/ขอเปลี่ยนแปลงการขอใช้สิทธิออกเสียงลงคะแนนนอกราชอาณาจักรและขอยกเลิกการลงทะเบียนการขอใช้สิทธิออกเสียงลงคะแนนนอกราชอาณาจักร
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <form id="mainform" novalidate>
+            <h4>๑. ข้อมูลผู้ลงทะเบียน</h4>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="pid">เลขบัตรประจำตัวประชาชน</label>
+                        <input type="text" class="form-control" name="pid" id="pid" pattern="^[0-9 -()+]+$" required
+                            placeholder="1234567890123" minlength="13" maxlength="13">
+                        <div class="invalid-feedback">
+                            กรุณากรอกเลขบัตรประชาชน 13 หลัก!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="passportId">เลขหนังสือเดินทาง</label>
+                        <input type="text" name="passportId" required id="passportId" class="form-control" minlength="7"
+                            maxlength="7" placeholder="AA1234567">
+                        <div class="invalid-feedback">
+                            กรุณากรอกเลขหนังสือเดินทาง 7 หลัก!
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nameTH">ชื่อ-สกุล(ไทย)</label>
+                        <input type="text" name="nameTH" id="nameTH" required class="form-control"
+                            placeholder="สมชาย จงจิตร" pattern="^[ก-๙ ]+$">
+                        <div class="invalid-feedback">
+                            กรุณากรอกชื่อ-สกุล ภาษาไทย!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nameTH">ชื่อ-สกุล(อังกฤษ)</label>
+                        <input type="text" name="nameEN" id="nameEN" required class="form-control"
+                            placeholder="Somchay Jongjid" pattern="^[a-zA-Z ]+$">
+                        <div class="invalid-feedback">
+                            กรุณากรอกชื่อ-สกุล ภาษาอังกฤษ!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="gender">เพศ</label>
+                        <select class="custom-select" name="gender" id="gender">
+                            <option selected>กรุณาเลือก</option>
+                            <option value="Male">ชาย</option>
+                            <option value="Female">หญิง</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="birthdate">วัน เดือน ปี เกิด</label>
+                        <input type="date" required name="birthdate" id="birthdate" class="form-control"
+                            aria-describedby="helpId">
+                    </div>
+                </div>
+            </div>
+            <h4>๒. ที่อยู่ในประเทศไทย (ตามทะเบียนบ้าน)</h4>
+            <div class="form-row">
+                <div class="form-group col-sm-12">
+                    <label for="address">ที่อยู่</label>
+                    <input type="text" required name="houseNo" id="houseNo" class="form-control"
+                        placeholder="402/2 หมู่ 2">
+                    <div class="invalid-feedback">
+                        จำเป็น
+                    </div>
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="state">ตำบล/แขวง</label>
+                    <input type="text" name="state" id="state" class="form-control" required placeholder="ตำบล/แขวง">
+                    <div class="invalid-feedback">
+                        จำเป็น
+                    </div>
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="state">อำเภอ/เขต</label>
+                    <input type="text" name="state" id="state" class="form-control" required placeholder="อำเภอ/เขต">
+                    <div class="invalid-feedback">
+                        จำเป็น
+                    </div>
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="state">จังหวัด</label>
+
+                    <input type="text" name="state" id="state" class="form-control" required placeholder="จังหวัด">
+                    <div class="invalid-feedback">
+                        จำเป็น
+                    </div>
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="state">รหัสไปรษณีย์</label>
+                    <input type="text" name="state" id="state" class="form-control" required placeholder="รหัสไปรษณีย์"
+                        pattern="^[0-9 -()+]+$" minlength="5" maxlength="5">
+                    <div class="invalid-feedback">
+                        จำเป็น
+                    </div>
+                </div>
+            </div>
+            <h4>๓. ที่อยู่ปัจจุบันในต่างประเทศ</h4>
+            <div class="form-group">
+                <label for="overseaAddress">ที่อยู่</label>
+                <input type="text" required name="overseaAddress" id="overseaAddress" class="form-control"
+                    placeholder="">
+                <div class="invalid-feedback">
+                    จำเป็น
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="coountry">ประเทศ</label>
+                <input type="text" required name="country" id="country" class="form-control" placeholder="ประเทศ">
+                <div class="invalid-feedback">
+                    จำเป็น
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="coountry">Email</label>
+                <input type="email" required name="country" id="country"
+                    class="form-control" placeholder="email@example.com">
+             <!--    <input type="text" required name="country" id="country" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+                    class="form-control" placeholder="email@example.com"> -->
+                <div class="invalid-feedback">
+                    จำเป็นต้องกรอกให้ถูกต้อง
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="coountry">โทรศัพท์</label>
+                <input type="text" required name="country" id="country" class="form-control"
+                    pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" placeholder="012-345-6768">
+                <div class="invalid-feedback">
+                    จำเป็น
+                </div>
+            </div>
+
+            <h4>๔. ในการเลือกตั้งครั้งนี้ข้าพเจ้ามีความประสงค์ ดังนี้</h4>
+            <div class="form-group">
+                <label for=""></label>
+                <select class="form-control form-control-md" name="" id="">
+                    <option selected>กรุณาเลือก</option>
+                    <option value="1">ขอใช้สิทธิเลือกตั้ง</option>
+                    <option value="2">ขอเปลี่ยนแปลงสถานที่ใช้สิทธิออกเสียงลงคะแนนนอกราชอาณาจักร</option>
+                    <option value="3">ขอเปลี่ยนแปลงวิธีการออกเสียงลงคะแนนและสถานที่การออกเสียงลงคะแนน</option>
+                    <option value="4">ขอยกเลิกการลงทะเบียนการขอใช้สิทธิออกเสียงลงคะแนนนอกราชอาณาจักร</option>
+                </select>
+            </div>
+
+            <h4>๕. วิธีออกเสียงลงคะแนนและสถานที่ออกเสียงลงคะแนน</h4>
+            <div class="form-group">
+                <label for=""></label>
+                <select class="form-control form-control-md" name="" id="">
+                    <option selected>กรุณาเลือก</option>
+                    <option value="1">การออกเสียงลงคะแนนที่หน่วยเลือกตั้ง ณ สถานเอกอัครราชฑูต ณ กรุงโคเปนเฮเกน</option>
+                    <option value="2">การใช้สิทธิออกเสียงลงคะแนนทางไปรษณีย์</option>
+                </select>
+            </div>
+
+            <div class="form-check form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="" id="" required value="checkedValue">
+                    ข้าพเจ้าขอรับรองว่าข้อความที่ให้ไว้ข้างตั้นเป็นึความจริงทุกประการ
+                </label>
+            </div>
+            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $('#mainform').submit(function (event) {
+                var form = $('#mainform')[0];
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                }
+                $(this).addClass('was-validated');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
