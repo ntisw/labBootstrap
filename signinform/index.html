@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  
+  <nav>
+    <div class="nav-wrapper">
+
+      <a href="#" class="brand-logo center">  <i class="material-icons prefix">network_check</i> Krabi Library</a>
+    </div>
+
+  </nav>
+  <div class="container">
+      <div class="row">
+          <div class="input-field col s12 m8">
+            <i class="material-icons prefix">account_box</i>
+            <input name="username" id="username" type="text" class="validate">
+            <label for="username">Username</label>
+          </div>
+        </div>
+        <div class="row ">
+            <div class="input-field col s12 m8">
+              <i class="material-icons prefix">lock</i>
+              <input name="password" id="password" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row">
+              <button id="submitBtn" class="btn waves-effect waves-light" onclick=" login()">Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+    </div>
+
+      
+
+  
+  
+
+
+  <!--JavaScript at end of body for optimized loading-->
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+
+
+  <script>
+    
+    function login() {
+      var username = document.getElementById("username").value
+      var password = document.getElementById("password").value
+      console.log(username)
+      console.log(password)
+      validateResult = checkUser(username, password)
+      console.log(validateResult);
+      
+    }
+    function checkUser(user, pass) {
+      if (user == pass)
+        return true
+      else
+        return false
+    }
+  </script>
+</body>
+
+</html>
